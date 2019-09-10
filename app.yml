@@ -22,7 +22,7 @@ default_events:
 # - deployment_status
 # - fork
 # - gollum
-# - issue_comment
+- issue_comment
 - issues
 # - label
 # - milestone
@@ -37,7 +37,7 @@ default_events:
 # - public
 # - pull_request
 # - pull_request_review
-# - pull_request_review_comment
+ - pull_request_review_comment
 # - push
 # - release
 # - repository
@@ -45,7 +45,7 @@ default_events:
 # - status
 # - team
 # - team_add
-# - watch
+ - watch
 
 # The set of permissions needed by the GitHub App. The format of the object uses
 # the permission name for the key (for example, issues) and the access type for
@@ -136,4 +136,4 @@ default_permissions:
 
 # Set to true when your GitHub App is available to the public or false when it is only accessible to the owner of the app.
 # Default: true
-# public: false
+public: true
