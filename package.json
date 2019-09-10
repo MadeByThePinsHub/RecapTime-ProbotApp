@@ -2,7 +2,7 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "recaptime-botongithub",
+  "name": "recaptime-github-bot",
   "version": "1.0.0",
   "description": "",
   "author": "AndreiJirohHaliliDev2006 <andreijiroheugeniohalili24680+dev@gmail.com>",
