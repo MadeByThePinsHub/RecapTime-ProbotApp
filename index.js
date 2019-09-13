@@ -1,12 +1,20 @@
 const getConfig = require('probot-config')
+const mongoose = require('mongoose')
+
+const mongoUri = `mongodb://${process.env.DB_HOST}`
+
+mongoose.connect(mongoUri, {
+  user: process.env.DB_USER,
+  pass: process.env.DB_PASS,
+  useMongoClient: true
+})
 
 module.exports = (app) => {
   // Your code here
   app.log('Yay! The app was loaded!')
   app.on('push', async context => {
     // Will look for 'test.yml' inside the '.github' folder
-    const config = await getConfig(context, 'stale.yml')
-    const 
+    const config = await getConfig(context, 'stale.yml', '')
     context.log(config, 'Loaded config')
   })
   // example of probot responding 'Hello World' to a new issue being opened
