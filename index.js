@@ -7,7 +7,7 @@ module.exports = (app) => {
   app.log('Yay! The app was loaded!')
   app.on('push', async context => {
     // Will look for 'test.yml' inside the '.github' folder
-    const config = await getConfig(context, 'stale.yml', '')
+    const config = await getConfig(context, 'recaptime_config.yml')
     context.log(config, 'Loaded config')
   })
   // example of probot responding 'Hello World' to a new issue being opened
@@ -17,15 +17,19 @@ module.exports = (app) => {
     //   {owner: 'yourname', repo: 'yourrepo', number: 123, body: 'Hello World!}
     const params = context.issue({body: 'Thank you for installing Recap Time Probot App!' + '\n' + '\n' +
                                  'To configure the app, see [https://supportcentral-madebythepins.freshdesk.com/solutions]'})
-    const parms = context.issue({owner: 'AndreiJirohHaliliDev2006', repo: ''})
+    const parms = context.issue({owner: 'MadeByThePinsDevs', repo: '', body: ''})
     return context.github.issues.createComment(params)
   })
 }
 
 module.exports = robot => {
   // Type `/label foo, bar` in a comment box for an Issue or Pull Request
-  commands(robot, 'label', (context, command) => {
+  commands(robot, 'addlabel', (context, command) => {
     const labels = command.arguments.split(/, */);
     return context.github.issues.addLabels(context.issue({labels}));
   });
+  commands(robot, 'help', (context, command) => {
+    const botcommands_help = context.issue({body: ''})
+    return context.github.issues.createComment(botcommands_help)
+  })
 }
