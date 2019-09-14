@@ -17,7 +17,7 @@
     "probot": "^9.4.0",
     "probot-stale": "^1.1.0",
     "probot-config": "^1.1.0",
-    "mongoose": "^5.7.0",
+    "mongoose": "^5.7.1",
     "probot-commands": "^1.1.0"
   },
   "devDependencies": {
@@ -37,7 +37,8 @@
   },
   "probot": {
     "apps": [
-      "probot-stale"
+      "probot-stale",
+      "probot-commands"
     ]
   }
 }

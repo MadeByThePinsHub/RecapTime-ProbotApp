@@ -1,5 +1,6 @@
 const getConfig = require('probot-config')
 const mongoose = require('mongoose')
+const commands = require('probot-commands')
 
 module.exports = (app) => {
   // Your code here
@@ -16,8 +17,15 @@ module.exports = (app) => {
     //   {owner: 'yourname', repo: 'yourrepo', number: 123, body: 'Hello World!}
     const params = context.issue({body: 'Thank you for installing Recap Time Probot App!' + '\n' + '\n' +
                                  'To configure the app, see [https://supportcentral-madebythepins.freshdesk.com/solutions]'})
-
-    // Post a comment on the issue
+    const parms = context.issue({owner: 'AndreiJirohHaliliDev2006', repo: ''})
     return context.github.issues.createComment(params)
   })
+}
+
+module.exports = robot => {
+  // Type `/label foo, bar` in a comment box for an Issue or Pull Request
+  commands(robot, 'label', (context, command) => {
+    const labels = command.arguments.split(/, */);
+    return context.github.issues.addLabels(context.issue({labels}));
+  });
 }
