@@ -6,7 +6,7 @@ const mongoUri = `mongodb://${process.env.DB_HOST}`
 mongoose.connect(mongoUri, {
   user: process.env.DB_USER,
   pass: process.env.DB_PASS,
-  useMongoClient: true
+  useNewUrlParser: true
 })
 
 module.exports = (app) => {
