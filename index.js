@@ -1,14 +1,6 @@
 const getConfig = require('probot-config')
 const mongoose = require('mongoose')
 
-const mongoUri = `mongodb://${process.env.DB_HOST}`
-
-mongoose.connect(mongoUri, {
-  user: process.env.DB_USER,
-  pass: process.env.DB_PASS,
-  useNewUrlParser: true
-})
-
 module.exports = (app) => {
   // Your code here
   app.log('Yay! The app was loaded!')
