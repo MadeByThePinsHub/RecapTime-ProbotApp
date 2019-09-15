@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const commands = require('probot-commands')
 const createScheduler = require('probot-scheduler')
 
+// The first code was derivied from probot-stale plugin
 module.exports = async app => {
   // Visit all repositories to mark and sweep stale issues
   const scheduler = createScheduler(app)
