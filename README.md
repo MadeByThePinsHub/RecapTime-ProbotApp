@@ -2,6 +2,11 @@ Recap Time Probot App for GitHub
 ======
 
 # Setup
+
+You can also read [this article on our
+Freshdesk Help Center](https://supportcentral-madebythepins.freshdesk.com/support/solutions/articles/47000150407-deploying-the-app-to-your-github-repo/)
+to learn more about how you set up
+
 ## Installation
 To get started using the bot, here are the steps to deploy this bot to your repo.
 
@@ -13,7 +18,7 @@ installation page.
 - To test whetever the bot is working for your own repo, try start an
 
 ## Follow-up
-- To
+- To the
 
 # Commands Help
 
