@@ -3,34 +3,6 @@ const mongoose = require('mongoose')
 const commands = require('probot-commands')
 const createScheduler = require('probot-scheduler')
 
-
-module.exports = (app) => {
-  // Your code here
-  app.log('Yay! The app was loaded!')
-  app.on('push', async context => {
-    // Will look for 'test.yml' inside the '.github' folder
-    const config = await getConfig(context, 'recaptime_config.yml')
-    context.log(config, 'Loaded config')
-  })
-  // example of probot responding 'Hello World' to a new issue being opened
-  app.on('issues.opened', async context => {
-    const automated_text = context.issue({owner: 'MadeByThePinsDevs', repo: 'RecapTime-ProbotApp', body: ''})
-    return context.github.issues.createComment(automated_text)
-  })
-}
-
-module.exports = robot => {
-  // Type `/label foo, bar` in a comment box for an Issue or Pull Request
-  commands(robot, 'addlabel', (context, command) => {
-    const labels = command.arguments.split(/, */);
-    return context.github.issues.addLabels(context.issue({labels}));
-  });
-  commands(robot, 'help', (context, command) => {
-    const botcommands_help = context.issue({body: ''})
-    return context.github.issues.createComment(botcommands_help)
-  })
-}
-
 module.exports = async app => {
   // Visit all repositories to mark and sweep stale issues
   const scheduler = createScheduler(app)
@@ -49,7 +21,7 @@ module.exports = async app => {
 
   async function unmark (context) {
     if (!context.isBot) {
-      const stale = await forRepository(context)
+      const recaptime_plugins_stale = await forRepository(context)
       let issue = context.payload.issue || context.payload.pull_request
       const type = context.payload.issue ? 'issues' : 'pulls'
 
@@ -63,10 +35,10 @@ module.exports = async app => {
       }
 
       const staleLabelAdded = context.payload.action === 'labeled' &&
-        context.payload.label.name === stale.config.staleLabel
+        context.payload.label.name === recaptime_plugins_stale.config.staleLabel
 
-      if (stale.hasStaleLabel(type, issue) && issue.state !== 'closed' && !staleLabelAdded) {
-        stale.unmarkIssue(type, issue)
+      if (recaptime_plugins_stale.hasStaleLabel(type, issue) && issue.state !== 'closed' && !staleLabelAdded) {
+        recaptime_plugins_stale.unmarkIssue(type, issue)
       }
     }
   }
@@ -78,16 +50,37 @@ module.exports = async app => {
   }
 
   async function forRepository (context) {
-    let config = await getConfig(context, 'stale.yml')
+    let config = await getConfig(context, 'recaptime_config.yml')
 
     if (!config) {
       scheduler.stop(context.payload.repository)
       // Don't actually perform for repository without a config
       config = { perform: false }
+      print('Something fishy on some repositories: No configuration files.')
     }
 
     config = Object.assign(config, context.repo({ logger: app.log }))
 
-    return new Stale(context.github, config)
+    return new RT_Stale(context.github, config)
   }
+}
+
+module.exports = (app) => {
+  // example of probot responding 'Hello World' to a new issue being opened
+  app.on('issues.opened', async context => {
+    const automated_text = context.issue({owner: 'MadeByThePinsDevs', repo: 'RecapTime-ProbotApp', body: ''})
+    return context.github.issues.createComment(automated_text)
+  })
+}
+
+module.exports = robot => {
+  // Type `/label foo, bar` in a comment box for an Issue or Pull Request
+  commands(robot, 'addlabel', (context, command) => {
+    const labels = command.arguments.split(/, */);
+    return context.github.issues.addLabels(context.issue({labels}));
+  });
+  commands(robot, 'help', (context, command) => {
+    const botcommands_help = context.issue({body: ''})
+    return context.github.issues.createComment(botcommands_help)
+  })
 }
