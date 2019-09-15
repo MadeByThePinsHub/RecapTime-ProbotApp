@@ -17,10 +17,11 @@ module.exports = (app) => {
     return context.github.issues.addLabels(context.issue({labels}));
   });
   commands(robot, 'help', (context, command) => {
-    const botcommands_help = context.issue({body: ''})
+    const botcommands_help = context.issue({body: 'To see the full list of available commands for this bot, please go' +
+                'to these links provided:' + '\n' + '\n' +
+                '- [Bot Documentation on GitHub](https://recaptime-probotapp.github.io/docs)'})
     return context.github.issues.createComment(botcommands_help)
   })
-  module.exports = app => {
   app.on('issues.opened', async context => {
     const params = context.issue({
       body: 'Hello World!'
