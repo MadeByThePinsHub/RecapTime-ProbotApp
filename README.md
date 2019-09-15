@@ -1,6 +1,8 @@
 Recap Time Probot App for GitHub
 ======
 
+An GitHub app that combined some other apps into one solution.
+
 # Setup
 
 You can also read [this article on our

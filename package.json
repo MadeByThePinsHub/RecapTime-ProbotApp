@@ -38,7 +38,8 @@
   "probot": {
     "apps": [
       "probot-stale",
-      "probot-commands"
+      "probot-commands",
+      "probot-scheduler"
     ]
   }
 }
