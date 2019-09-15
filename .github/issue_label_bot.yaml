@@ -1,0 +1,10 @@
+label-alias:
+  report_an_bug: 'bug'
+  feature_request: 'enhancement'
+  question: 'question'
+  need_assistance: 'help wanted'
+  docs_feedback: 'documentation'
+  dupe: 'duplicate'
+  testing_recap-time-probot-app: 'tests:recap-time-probot-app'
+  something_went_wrong: 'wontfix'
+  good_first_issue: 'good first issue'
