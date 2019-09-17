@@ -3,6 +3,15 @@ Recap Time Probot App for GitHub
 
 An GitHub app that combined some other apps into one solution.
 
+# Repository Links?
+
+We deploy codebase updates thru automations without messing up the project members to use `git push` commands because
+GitLab pulls the updates from Glitch then pushes to GitHub.
+
+* Glitch (the original one) - https://glitch.com/edit/#!/recaptime-probotapp
+* GitLab (the middlewire) - https://gitlab.com/
+* GitHub (the target remote repo)- 
+
 # Setup
 
 You can also read [this article on our
