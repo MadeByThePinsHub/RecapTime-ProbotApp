@@ -2,6 +2,7 @@ const getConfig = require('probot-config')
 const mongoose = require('mongoose')
 const commands = require('probot-commands')
 const createScheduler = require('probot-scheduler')
+const RT_Stale = require('./lib/stale')
 
 // The first code was derivied from probot-stale plugin
 module.exports = async app => {
