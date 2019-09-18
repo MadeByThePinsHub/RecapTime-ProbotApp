@@ -24,4 +24,4 @@ GitHub_webhookSecret=your_secret_here
 - Don't forget to add your secret passcode before submitting the form and test.
 ![](https://aws1.discourse-cdn.com/business6/uploads/glitch/original/2X/3/358c9394e3b449e1e1127ae94dd1ebdde188ebde.png)
 
-- 
+- Check your console logs to see if GitHub successfully sent the test message.
