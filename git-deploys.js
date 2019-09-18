@@ -5,9 +5,13 @@
 
 const cmd = require("node-cmd");
 const express =  require("express");
+const crypto = require("crypto"); // NPM Package "crypto" is pre-installed, so forget about digging search results again.
 const app = express()
 
 app.post('/git-deploys/github', (req, res) => {
+    let hmac = crypto.createHmac("sha1", process.env.GitHub_webhookSecret);
+  let sig  = "sha1=" + hmac.update(JSON.stringify(req.body)).digest("hex");
+  
   if (req.headers['x-github-event'] == "push") {
   cmd.run('chmod 777 github.sh'); /* :/ Fix no perms after updating */
   cmd.get('./deploy/github.sh', (err, data) => {  // Run our script
