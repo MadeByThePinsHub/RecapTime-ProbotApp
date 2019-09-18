@@ -6,6 +6,8 @@ In this documentation
 
 ## Using Webhooks in GitHub
 
+See [this tutorial on Glitch Support](https://support.glitch.com/t/tutorial-how-to-auto-update-your-project-with-github/8124) for more info.
+
 - First of all, configure the `git-deploys.js` file first. We pre-configured the file for you, just in case you use it on your own servers.
 - Next, create `GitHub_webhookSecret` with an value to make things works. This way, nobody should mess up the webhooks without this secret. Your `.env` file should looks like this:
 ```env

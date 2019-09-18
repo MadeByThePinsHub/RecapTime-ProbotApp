@@ -8,17 +8,16 @@ const express =  require("express");
 const crypto = require("crypto"); // NPM Package "crypto" is pre-installed, so forget about digging search results again.
 const app = express()
 
-app.post('/webhooks/git-deploys/github', (req, res) => {
+app.post('/webhooks/git-deploys/github/MaglubayTest123DHusdg', (req, res) => {
   let hmac = crypto.createHmac("sha1", process.env.GitHub_webhookSecret);
   let sig  = "sha1=" + hmac.update(JSON.stringify(req.body)).digest("hex");
   
-  if (req.headers['x-github-event'] == "push" && 
-      sig == req.headers['x-hub-signature']) {
-  cmd.run('chmod 777 github.sh'); /* :/ Fix no perms after updating */
-  cmd.get('./deploy/github.sh', (err, data) => {  // Run our script
-    if (data) console.log(data);
-    if (err) console.log(err);
-  });
+  if (req.headers['x-github-event'] == "push") {
+      cmd.run('chmod 777 github.sh'); /* :/ Fix no perms after updating */
+      cmd.get('./deploy/github.sh', (err, data) => {  // Run our script
+        if (data) console.log(data);
+        if (err) console.log(err);
+    });
   cmd.run('refresh');  // Refresh project
   let commits = req.body.head_commit.message.split("\n").length == 1 ?
               req.body.head_commit.message :

@@ -10,7 +10,7 @@
   "repository": "https://github.com/probot/hello-world.git",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
-    "start": "probot run ./index.js && node git-deploys.js",
+    "start": "bash bootup.sh",
     "test": "jest && standard"
   },
   "dependencies": {
