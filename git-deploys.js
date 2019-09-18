@@ -8,7 +8,7 @@ const express =  require("express");
 const crypto = require("crypto"); // NPM Package "crypto" is pre-installed, so forget about digging search results again.
 const app = express()
 
-app.post('/git-deploys/github', (req, res) => {
+app.post('/webhooks/git-deploys/github', (req, res) => {
     let hmac = crypto.createHmac("sha1", process.env.GitHub_webhookSecret);
   let sig  = "sha1=" + hmac.update(JSON.stringify(req.body)).digest("hex");
   
