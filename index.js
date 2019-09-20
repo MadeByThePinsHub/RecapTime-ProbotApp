@@ -90,27 +90,3 @@ module.exports = robot => {
     return context.github.issues.createComment(botcommands_help)
   })
 }
-
-// Combined from git-deploys.js file
-app.post('/webhooks/github', (req, res) => {
-  let hmac = crypto.createHmac("sha1", process.env.GitHub_webhookSecret);
-  let sig  = "sha1=" + hmac.update(JSON.stringify(req.body)).digest("hex");
-  
-  if (req.headers['x-github-event'] == "push") {
-      cmd.run('chmod 777 github.sh'); /* :/ Fix no perms after updating */
-      cmd.get('./deploy/github.sh', (err, data) => {  // Run our script
-        if (data)
-          console.log(data);
-        if (err)
-          console.log(err);
-    });
-  cmd.run('refresh');  // Refresh project
-  let commits = req.body.head_commit.message.split("\n").length == 1 ?
-              req.body.head_commit.message :
-              req.body.head_commit.message.split("\n").map((el, i) => i !== 0 ? "                       " + el : el).join("\n");
-  console.log(`> [GIT] Source code updated with github:MadeByThePinsHub/RecapTime-ProbotApp\n` + 
-            `        Latest commit: ${commits}`);
-  }
-  return res.sendStatus(200).json({ status: 'Success', description: 'The server received the webhooj message. Updating Glitch repo...' }); // Send back OK status
-})
-
