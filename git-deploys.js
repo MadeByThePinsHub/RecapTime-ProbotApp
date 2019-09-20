@@ -25,5 +25,20 @@ app.post('/webhooks/git-deploys/github/MaglubayTest123DHusdg', (req, res) => {
   console.log(`> [GIT] Source code updated with github:MadeByThePinsHub/RecapTime-ProbotApp/master\n` + 
             `        Latest commit: ${commits}`);
   }
-  return res.sendStatus(200); // Send back OK status
+  return res.sendStatus(200).json({ status: 404, description: 'GitHub webhook message received, waiting for Glitch to update source code...'}); // Send back OK status
+})
+
+app.get('/webhooks/git-deploys/github/MaglubayTest123DHusdg', (req, res) => {
+  cmd.run('chmod 777 github.sh'); /* :/ Fix no perms after updating */
+  cmd.get('./deploy/github.sh', (err, data) => {  // Run our script
+    if (data) console.log(data);
+    if (err) console.log(err);
+    });
+  cmd.run('refresh');  // Refresh project
+  let commits = req.body.head_commit.message.split("\n").length == 1 ?
+              req.body.head_commit.message :
+              req.body.head_commit.message.split("\n").map((el, i) => i !== 0 ? "                       " + el : el).join("\n");
+  console.log(`> [GIT] Source code updated with github:MadeByThePinsHub/RecapTime-ProbotApp/master\n` + 
+            `        Latest commit: ${commits}`);
+  return res.sendStatus(200).json({ status: 404, description: 'GitHub webhook message received, waiting for Glitch to update source code...'}); // Send back OK status
 })
