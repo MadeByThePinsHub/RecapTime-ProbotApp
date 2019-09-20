@@ -4,7 +4,7 @@
   "//3": "updating this file will download and update your packages",
   "name": "recaptime-github-bot",
   "version": "0.5.0",
-  "description": "",
+  "description": "An Probot GitHub app",
   "author": "AndreiJirohHaliliDev2006 <andreijiroheugeniohalili24680+dev@gmail.com>",
   "license": "ISC",
   "repository": "https://github.com/probot/hello-world.git",

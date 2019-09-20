@@ -8,7 +8,7 @@ const express =  require("express");
 const crypto = require("crypto"); // NPM Package "crypto" is pre-installed, so forget about digging search results again.
 const app = express()
 
-app.post('/webhooks/git-deploys/github/MaglubayTest123DHusdg', (req, res) => {
+app.post('/git', (req, res) => {
   let hmac = crypto.createHmac("sha1", process.env.GitHub_webhookSecret);
   let sig  = "sha1=" + hmac.update(JSON.stringify(req.body)).digest("hex");
   
@@ -25,10 +25,10 @@ app.post('/webhooks/git-deploys/github/MaglubayTest123DHusdg', (req, res) => {
   console.log(`> [GIT] Source code updated with github:MadeByThePinsHub/RecapTime-ProbotApp/master\n` + 
             `        Latest commit: ${commits}`);
   }
-  return res.sendStatus(200).json({ status: 404, description: 'GitHub webhook message received, waiting for Glitch to update source code...'}); // Send back OK status
+  return res.sendStatus(200).json({ status: 200, description: 'GitHub webhook message received, waiting for Glitch to update source code...'}); // Send back OK status
 })
 
-app.get('/webhooks/git-deploys/github/MaglubayTest123DHusdg', (req, res) => {
+app.get('/git', (req, res) => {
   cmd.run('chmod 777 github.sh'); /* :/ Fix no perms after updating */
   cmd.get('./deploy/github.sh', (err, data) => {  // Run our script
     if (data) console.log(data);
@@ -40,5 +40,5 @@ app.get('/webhooks/git-deploys/github/MaglubayTest123DHusdg', (req, res) => {
               req.body.head_commit.message.split("\n").map((el, i) => i !== 0 ? "                       " + el : el).join("\n");
   console.log(`> [GIT] Source code updated with github:MadeByThePinsHub/RecapTime-ProbotApp/master\n` + 
             `        Latest commit: ${commits}`);
-  return res.sendStatus(200).json({ status: 404, description: 'GitHub webhook message received, waiting for Glitch to update source code...'}); // Send back OK status
+  return res.sendStatus(200).json({ status: 200, description: 'We received your GET request, waiting for Glitch to update source code...'}); // Send back OK status
 })
