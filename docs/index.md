@@ -5,6 +5,8 @@ you need to create your own seperate branch (or fork this) and edit without affe
 
 # Table of Contents
 
+To see the full list of them, visit the [full documentation](https://probot-app.recaptime.tk) instead as the docs are always up-to-date than this directory on this Glitch project.
+
 ## Configuration
 
 ## Deploying and Updating Code
