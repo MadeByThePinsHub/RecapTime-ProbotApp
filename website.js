@@ -63,3 +63,5 @@ module.exports = app => {
     client_secret: process.env.GITHUB_CLIENT_SECRET
   })
 }
+
+myUndefinedFunction();
