@@ -28,7 +28,7 @@ To get started using the bot, here are the steps to deploy this bot to your repo
 - To test whetever the bot is working for your own repo, try to test features first if working. If not, see `docs/troubleshooting/basic-help.md` for help.
 
 ## Follow-up
-- See the documentation folder (`docs/`) for explained and expanded help in setting up the bot for your repository or deploying
+- See [the documentation febsite](https://probot-docs.recaotiem.tk) for more information as to aoid the folder mess.older (`docs/`) for explained and expanded help in setting up the bot for your repository or deploying
 your own on your own server.
 
 # Commands Help

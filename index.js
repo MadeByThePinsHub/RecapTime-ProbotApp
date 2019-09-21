@@ -5,8 +5,6 @@ const createScheduler = require('probot-scheduler')
 const RT_Stale = require('./lib/stale')
 const cmd = require("node-cmd");
 const express =  require("express");
-const crypto = require("crypto"); // NPM Package "crypto" is pre-installed, so forget about digging search results again.
-const app = express()
 
 // The first code was derivied from probot-stale plugin
 module.exports = async app => {
@@ -71,19 +69,15 @@ module.exports = async app => {
   }
 }
 
-module.exports = (app) => {
-  // example of probot responding 'Hello World' to a new issue being opened
-  app.on('issues.opened', async context => {
-    const automated_text = context.issue({owner: 'MadeByThePinsDevs', repo: 'RecapTime-ProbotApp', body: ''})
-    return context.github.issues.createComment(automated_text)
-  })
-}
-
 module.exports = robot => {
   // Type `/label foo, bar` in a comment box for an Issue or Pull Request
   commands(robot, 'addlabel', (context, command) => {
     const labels = command.arguments.split(/, */);
     return context.github.issues.addLabels(context.issue({labels}));
+  });
+  commands(robot, 'rmlabel', (context, command) => {
+    const labels = command.arguments.split(/, */);
+    return context.github.issues.removeLabels(context.issue({labels}));
   });
   commands(robot, 'help', (context, command) => {
     const botcommands_help = context.issue({body: ''})
