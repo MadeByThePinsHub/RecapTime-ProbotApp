@@ -5,6 +5,7 @@ const createScheduler = require('probot-scheduler')
 const RT_Stale = require('./lib/stale')
 const cmd = require("node-cmd");
 const express =  require("express");
+const { registerAuthRoutes } = require('auth-routes')
 
 // The first code was derivied from probot-stale plugin
 module.exports = async app => {
@@ -82,5 +83,18 @@ module.exports = robot => {
   commands(robot, 'help', (context, command) => {
     const botcommands_help = context.issue({body: ''})
     return context.github.issues.createComment(botcommands_help)
+  })
+}
+
+module.exports = app => {
+  // Access the Express server that Probot uses
+  const expressApp = app.route()
+ 
+  // Register the routes as normal
+  registerAuthRoutes(expressApp, {
+    loginURL: '/connectApp',
+    callbackURL: '/connectApp/success',
+    client_id: process.env.GITHUB_CLIENT_ID,
+    client_secret: process.env.GITHUB_CLIENT_SECRET
   })
 }

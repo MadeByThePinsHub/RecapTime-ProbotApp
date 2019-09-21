@@ -6,7 +6,8 @@
 const cmd = require("node-cmd");
 const express =  require("express");
 const crypto = require("crypto"); // NPM Package "crypto" is pre-installed, so forget about digging search results again.
-const app = express()
+const app = express();
+const { registerAuthRoutes } = require('auth-routes')
 
 app.post('/git', (req, res) => {
   let hmac = crypto.createHmac("sha1", process.env.GitHub_webhookSecret);
@@ -42,3 +43,21 @@ app.get('/git', (req, res) => {
             `        Latest commit: ${commits}`);
   return res.sendStatus(200).json({ status: 200, description: 'We received your GET request, waiting for Glitch to update source code...'}); // Send back OK status
 })
+
+///
+///
+///
+
+module.exports = app => {
+  // Access the Express server that Probot uses
+  const expressApp = app.route()
+ 
+  // Register the routes as normal
+  registerAuthRoutes(expressApp, {
+    loginURL: '/connectApp',
+    callbackURL: '/connectApp/success',
+    afterLogin: '/thankyou',
+    client_id: process.env.GITHUB_CLIENT_ID,
+    client_secret: process.env.GITHUB_CLIENT_SECRET
+  })
+}
