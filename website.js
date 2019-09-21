@@ -8,6 +8,8 @@ const express =  require("express");
 const crypto = require("crypto"); // NPM Package "crypto" is pre-installed, so forget about digging search results again.
 const app = express();
 const { registerAuthRoutes } = require('auth-routes')
+const Sentry = require('@sentry/node');
+Sentry.init({ dsn: 'https://ad497bb2151544dea839c616bc37c0e8@sentry.io/1756966' }); // Change it with your own DSN
 
 app.post('/git', (req, res) => {
   let hmac = crypto.createHmac("sha1", process.env.GitHub_webhookSecret);

@@ -6,6 +6,8 @@ const RT_Stale = require('./lib/stale')
 const cmd = require("node-cmd");
 const express =  require("express");
 const { registerAuthRoutes } = require('auth-routes')
+const Sentry = require('@sentry/node');
+Sentry.init({ dsn: 'https://ad497bb2151544dea839c616bc37c0e8@sentry.io/1756966' }); // Change it with your own DSN
 
 // The first code was derivied from probot-stale plugin
 module.exports = async app => {
