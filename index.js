@@ -3,11 +3,6 @@ const mongoose = require('mongoose')
 const commands = require('probot-commands')
 const createScheduler = require('probot-scheduler')
 const RT_Stale = require('./lib/stale')
-const cmd = require("node-cmd");
-const express =  require("express");
-const { registerAuthRoutes } = require('auth-routes')
-const Sentry = require('@sentry/node');
-Sentry.init({ dsn: 'https://ad497bb2151544dea839c616bc37c0e8@sentry.io/1756966' }); // Change it with your own DSN
 
 // The first code was derivied from probot-stale plugin
 module.exports = async app => {
@@ -83,20 +78,8 @@ module.exports = robot => {
     return context.github.issues.removeLabels(context.issue({labels}));
   });
   commands(robot, 'help', (context, command) => {
-    const botcommands_help = context.issue({body: ''})
+    const botcommands_help = context.issue({body: '## Bot Commands Help\n'  +
+                                           ''})
     return context.github.issues.createComment(botcommands_help)
-  })
-}
-
-module.exports = app => {
-  // Access the Express server that Probot uses
-  const expressApp = app.route()
- 
-  // Register the routes as normal
-  registerAuthRoutes(expressApp, {
-    loginURL: '/connectApp',
-    callbackURL: '/connectApp/success',
-    client_id: process.env.GITHUB_CLIENT_ID,
-    client_secret: process.env.GITHUB_CLIENT_SECRET
   })
 }
