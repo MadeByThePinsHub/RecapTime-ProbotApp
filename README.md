@@ -4,6 +4,8 @@ Recap Time Probot App for GitHub
 An GitHub app that combined some other apps into one solution.
 
 # Looking for Repository Links?
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMadeByThePinsHub%2FRecapTime-ProbotApp.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMadeByThePinsHub%2FRecapTime-ProbotApp?ref=badge_shield)
+
 
 We deploy codebase updates thru automations without messing up the project members to use `git push` commands because
 GitLab pulls the updates from Glitch then pushes to GitHub.
@@ -38,3 +40,7 @@ about an command.
 - `/help` - sends the full list of available commands. Also includes documetation links.
 - `/addlabel [label]` - adds an label to an issue/PR.
 - `/rmlabel [label]` - same as `/addlabel` but it'll removes
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMadeByThePinsHub%2FRecapTime-ProbotApp.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMadeByThePinsHub%2FRecapTime-ProbotApp?ref=badge_large)
