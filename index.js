@@ -92,7 +92,7 @@ module.exports = robot => {
   commands(robot, "help", (context, command) => {
     const botcommands_help = context.issue({
       body:
-        "## Bot Commands Help\n" + "To see the full list of the commands, see"
+        "## Bot Commands Help\n" + "To see the full list of the commands, see [documentation instead](https://probot-docs.recaptime.tk/)"
     });
     return context.github.issues.createComment(botcommands_help);
   });
