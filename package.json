@@ -6,7 +6,7 @@
   "version": "0.5.0",
   "description": "An Probot GitHub app",
   "author": "AndreiJirohHaliliDev2006 <andreijiroheugeniohalili24680+dev@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "repository": "https://github.com/probot/hello-world.git",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
@@ -14,7 +14,7 @@
     "test": "jest && standard"
   },
   "dependencies": {
-    "probot": "^9.5.0",
+    "probot": "^9.6.4",
     "probot-stale": "^1.1.0",
     "probot-config": "^1.1.0",
     "mongoose": "^5.7.1",
@@ -23,7 +23,7 @@
     "@hapi/joi": "^16.1.3",
     "node-cmd": "^3.0.0",
     "auto-routes": "^0.0.3",
-    "@sentry/node": "^5.6.2"
+    "@sentry/node": "^5.9.0"
   },
   "devDependencies": {
     "jest": "^23.2.0",
