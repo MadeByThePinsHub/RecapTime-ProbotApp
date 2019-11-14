@@ -74,10 +74,16 @@ module.exports = async app => {
 };
 
 module.exports = robot => {
-  // Type `/label foo, bar` in a comment box for an Issue or Pull Request
+  // Type `/label foo, bar` in a comment box for an Issue or Pull Request to be labeled
   commands(robot, "addlabel", (context, command) => {
     const labels = command.arguments.split(/, */);
+    const confirmation_addlabel = context.issue({
+      body: "Successfully added the specified labels in the `label` parameter. Refresh this page to see latest content." +
+      "If the problem occurs or the label/s you specified is not added as expected, please [contact Support](https://forums.devhubcentral.ml)," +
+      "[create an new issue](https://probot-app) or fork this project"
+    });
     return context.github.issues.addLabels(context.issue({ labels }));
+    return context.github.issues.createComment(confirmation_addlabel);
   });
   commands(robot, "rmlabel", (context, command) => {
     const labels = command.arguments.split(/, */);
@@ -92,8 +98,16 @@ module.exports = robot => {
   commands(robot, "help", (context, command) => {
     const botcommands_help = context.issue({
       body:
-        "## Bot Commands Help\n" + "To see the full list of the commands, see [documentation instead](https://probot-docs.recaptime.tk/)"
+        "## Bot Commands Help\n" +
+        "To see the full list of the commands, see [documentation for the full cheat sheetinstead](https://probot-docs.recaptime.tk/cheat-sheet/commands)"
     });
     return context.github.issues.createComment(botcommands_help);
+  });
+  // Checks whetever the bot is still working.
+  commands(robot, "connect", (context, command) => {
+    const statusChecks = context.issue({
+      body: "I'm alive and usually responds my system at"
+    });
+    return context.github.issues.createComment(statusChecks);
   });
 };
