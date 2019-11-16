@@ -4,10 +4,10 @@
 git remote add gitlab-origin https://gitlab.com/MadeByThePinsTeam-DevLabs/
 
 # Fetch the newest code
-git fetch origin master
+git fetch gitlab-origin master
 
 # Hard reset
-git reset --hard origin/master
+git reset --hard gitlab-origin/master
 
 # Force pull
-git pull origin master --force
+git pull gitlab-origin master --force
