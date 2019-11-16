@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
     "update": "bash update-source-code.sh",
+    "postinstall": "babel check-version.js",
     "start": "probot run ./index.js",
     "test": "jest && standard"
   },

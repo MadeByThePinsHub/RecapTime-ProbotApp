@@ -8,4 +8,7 @@ const version = engines.node;
 if (!semver.satisfies(process.version, version)) {
   console.log(`Security Compliance Error: Your version of Node.js ($(process.version)) is not compliant with our required version $(version)`);
   process.exit(1);
-} else
+} else {
+  console.log(`Your machine is compliant with the required version of Node.js. Congrats!`);
+  process.exit(1)
+}
