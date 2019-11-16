@@ -10,20 +10,22 @@
   "repository": "https://github.com/probot/hello-world.git",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
-    "start": "probot run ./index.js && node website.js",
+    "update": "bash update-source-code.sh",
+    "start": "probot run ./index.js",
     "test": "jest && standard"
   },
   "dependencies": {
-    "probot": "^9.6.4",
-    "probot-stale": "^1.1.0",
-    "probot-config": "^1.1.0",
-    "mongoose": "^5.7.1",
-    "probot-commands": "^1.1.0",
-    "express": "^4.16.4",
     "@hapi/joi": "^16.1.3",
-    "node-cmd": "^3.0.0",
+    "@sentry/node": "^5.9.0",
     "auto-routes": "^0.0.3",
-    "@sentry/node": "^5.9.0"
+    "express": "^4.16.4",
+    "mongoose": "^5.7.1",
+    "node-cmd": "^3.0.0",
+    "probot": "^9.6.4",
+    "probot-commands": "^1.1.0",
+    "probot-config": "^1.1.0",
+    "probot-stale": "^1.1.0",
+    "semver": "^6.3.0"
   },
   "devDependencies": {
     "jest": "^23.2.0",
@@ -32,8 +34,8 @@
     "ajv-keywords": "5.0.0"
   },
   "engines": {
-    "node": "12.10.0",
-    "npm": "6.11.3"
+    "node": ">=12.10.0",
+    "npm": ">=6.11.3"
   },
   "standard": {
     "env": [

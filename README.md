@@ -7,9 +7,9 @@ An GitHub app that combined some other apps into one solution, open-sourced and 
 We deploy codebase updates thru automations without messing up the project members to use `git push` commands because
 GitLab pulls the updates from Glitch then pushes to GitHub.
 
-* Glitch (the origin) - https://glitch.com/edit/#!/recaptime-probotapp
-* GitLab (where the CI tests our code) - https://gitlab.com/MadeByThePinsTeam-DevLabs/recaptime-probotapp
-* GitHub (here, [where the things will archived every 2/2 after 5 years](https://archiveprogram.github.com/)) - https://github.com/MadeByThePinsHub/RecapTime-ProbotApp
+* Glitch (the origin) - <https://glitch.com/edit/#!/recaptime-probotapp>
+* GitLab (where the CI tests our code) - <https://gitlab.com/MadeByThePinsTeam-DevLabs/recaptime-probotapp>
+* GitHub (here, [where the things will archived every Feburary 2 after 5 years](https://archiveprogram.github.com/)) - <https://github.com/MadeByThePinsHub/RecapTime-ProbotApp>
 
 ## Setup on your Target GitHub account/repo
 
@@ -41,7 +41,7 @@ For the full scoop, use `/help` to see full list of available working commands a
 about an command.
 
 - `/help` - sends the full list of available commands. Also includes documetation links.
-- `/addlabel [label]` - adds an label to an issue/PR.
+- `/addlabel [label]` - adds an label to an issue/PR. (You can as many labels as you can.)
 - `/rmlabel [label]` - same as `/addlabel` but it'll removes labels.
 - `/about` - about the bot, including installation info.
 
