@@ -7,11 +7,10 @@
   "description": "An Probot GitHub app",
   "author": "AndreiJirohHaliliDev2006 <andreijiroheugeniohalili24680+dev@gmail.com>",
   "license": "MIT",
-  "repository": "https://github.com/probot/hello-world.git",
+  "repository": "https://gitlab.com/MadeByThePinsTeam-DevLabs/RecapTime-Staff/recaptime-probotapp.git",
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
-    "update": "bash update-source-code.sh",
-    "postinstall": "babel check-version.js",
+    "updater": "bash update-source-code.sh",
     "start": "probot run ./index.js",
     "test": "jest && standard"
   },
@@ -34,7 +33,7 @@
     "ajv-keywords": "3.4.1"
   },
   "engines": {
-    "node": ">=12.10.0",
+    "node": ">=12.x",
     "npm": ">=6.11.3"
   },
   "standard": {
