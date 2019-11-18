@@ -78,9 +78,10 @@ module.exports = robot => {
   commands(robot, "addlabel", (context, command) => {
     const labels = command.arguments.split(/, */);
     const confirmation_addlabel = context.issue({
-      body: "Successfully added the specified labels in the `label` parameter. Refresh this page to see latest content." +
-      "If the problem occurs or the label/s you specified is not added as expected, please [contact Support](https://forums.devhubcentral.ml)," +
-      "[create an new issue](https://probot-app) or fork this project"
+      body:
+        "Successfully added the specified labels in the `label` parameter. Refresh this page to see latest content." +
+        "If the problem occurs or the label/s you specified is not added as expected, please [contact Support](https://forums.devhubcentral.ml)," +
+        "[create an new issue](https://probot-app) or fork this project"
     });
     return context.github.issues.addLabels(context.issue({ labels }));
     return context.github.issues.createComment(confirmation_addlabel);
@@ -105,6 +106,12 @@ module.exports = robot => {
   });
   // Checks whetever the bot is still working.
   commands(robot, "connect", (context, command) => {
+    const statusChecks = context.issue({
+      body: "I'm alive and usually responds my system at"
+    });
+    return context.github.issues.createComment(statusChecks);
+  });
+  commands(robot, "test", (context, command) => {
     const statusChecks = context.issue({
       body: "I'm alive and usually responds my system at"
     });
