@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: App Documentation
+    url: https://probot-docs.recaptime.tk/guides/catch-the-bugs
+    about: Check the documentation first on catching bugs before raising an issue.
+  - name: Roadmap
+    url: https://probot-docs.recaptime.tk/roadmap
+    about: Track our roadmap first before creating new feature request.
+  - name: Need community support on using Probot?
+    url: https://probot.github.io/community
+    about: Visit Probot Community page for community answers.
