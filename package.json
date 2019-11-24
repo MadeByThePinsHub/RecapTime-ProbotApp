@@ -15,7 +15,7 @@
     "test": "jest && standard"
   },
   "dependencies": {
-    "probot": "^9.6.4",
+    "probot": "^9.6.6",
     "probot-stale": "^1.1.0",
     "probot-config": "^1.1.0",
     "mongoose": "^5.7.11",
@@ -34,7 +34,7 @@
   },
   "engines": {
     "node": ">=12.x",
-    "npm": ">=6.11.3"
+    "npm": ">=6.13.1"
   },
   "standard": {
     "env": [
