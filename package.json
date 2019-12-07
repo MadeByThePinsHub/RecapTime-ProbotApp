@@ -15,16 +15,16 @@
     "test": "jest && standard"
   },
   "dependencies": {
-    "probot": "^9.6.6",
-    "probot-stale": "^1.1.0",
-    "probot-config": "^1.1.0",
-    "mongoose": "^5.7.11",
-    "probot-commands": "^1.1.0",
-    "express": "^4.16.4",
-    "@hapi/joi": "^16.1.7",
-    "node-cmd": "^3.0.0",
+    "@hapi/joi": "^16.1.8",
+    "@sentry/node": "^5.10.1",
     "auto-routes": "^0.0.3",
-    "@sentry/node": "^5.9.0"
+    "express": "^4.16.4",
+    "mongoose": "^5.7.14",
+    "node-cmd": "^3.0.0",
+    "probot": "^9.6.6",
+    "probot-commands": "^1.1.0",
+    "probot-config": "^1.1.0",
+    "probot-stale": "^1.1.0"
   },
   "devDependencies": {
     "jest": "^24.9.0",
