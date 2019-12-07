@@ -1,0 +1,13 @@
+name: GitHub Issues and PRs Auto-Reply
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Thank you for your contribution! For some reasons, we're currently migrating to [GitLab](https://about.gitlab.com) due to various reasons and our humans may take longer to reply. See [ThePinsTeam/MovingToGitLab repository](https://github.com/thepinsteam/movingtogitlab/blob/master/README.md) to learn more."
+        pr-message: "Thank you for your contribution! For some reasons, we're currently migrating to [GitLab](https://about.gitlab.com) due to various reasons and our humans may take longer to reply. See [ThePinsTeam/MovingToGitLab repository](https://github.com/thepinsteam/movingtogitlab/blob/master/README.md) to learn more."
