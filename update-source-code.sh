@@ -1,7 +1,7 @@
 #/bin/sh
 
 # Add the original GitLab project to list of remote Git repositories
-git remote add gitlab-origin https://gitlab.com/MadeByThePinsTeam-DevLabs/
+git remote set origin https://gitlab.com/MadeByThePinsTeam-DevLabs/RecapTime-Staff/recaptime-probotapp/
 
 # Fetch the newest code
 git fetch gitlab-origin master

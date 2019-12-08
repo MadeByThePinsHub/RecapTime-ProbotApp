@@ -129,7 +129,7 @@ default_permissions:
 name: Recap Time Probot App
 
 # The homepage of your GitHub App.
-# url: https://example.com/
+ url: https://probot-docs.recaptime.tk
 
 # A description of the GitHub App.
 description: An Probot-powered GitHub appmade by Andrei Jiroh, ready for production use.
