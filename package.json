@@ -19,7 +19,7 @@
     "@sentry/node": "^5.10.2",
     "auto-routes": "^0.0.3",
     "express": "^4.16.4",
-    "mongoose": "^5.8.1",
+    "mongoose": "^5.8.4",
     "node-cmd": "^3.0.0",
     "probot": "^9.6.6",
     "probot-commands": "^1.1.0",
