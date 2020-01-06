@@ -21,7 +21,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.8.1",
     "node-cmd": "^3.0.0",
-    "probot": "^9.6.6",
+    "probot": "^9.8.1",
     "probot-commands": "^1.1.0",
     "probot-config": "^1.1.0",
     "probot-stale": "^1.1.0"
