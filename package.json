@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "nodemon --exec \"npm start\"",
     "updater": "bash update-source-code.sh",
-    "start": "probot run ./index.js",
+    "start": "probot run",
     "test": "jest && standard"
   },
   "dependencies": {
