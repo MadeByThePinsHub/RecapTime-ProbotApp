@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/MadeByThePinsHub/RecapTime-ProbotApp) 
+
 Recap Time Probot App for GitHub
 ======
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMadeByThePinsHub%2FRecapTime-ProbotApp.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMadeByThePinsHub%2FRecapTime-ProbotApp?ref=badge_shield)
