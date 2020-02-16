@@ -1,8 +1,5 @@
 language: node_js
 
-node_js:
-  - "8"
-  - "12.x"
-  - "13.x"
+node_js: 12.x
 
 os: linux
