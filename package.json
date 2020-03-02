@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@hapi/joi": "^16.1.8",
-    "@sentry/node": "^5.10.2",
+    "@sentry/node": "^5.13.1",
     "auto-routes": "^0.0.3",
     "express": "^4.16.4",
     "mongoose": "^5.9.1",
