@@ -27,7 +27,7 @@
     "probot-stale": "^1.1.0"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
+    "jest": "^25.4.0",
     "smee-client": "^1.0.1",
     "standard": "^14.3.1",
     "ajv-keywords": "3.4.1"
